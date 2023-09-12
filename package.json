@@ -10,7 +10,7 @@
     "test:integration": "jest --forceExit test/local-development.test",
     "test:integration:extended": "cross-env IS_EXTENDED=true jest --forceExit test/local-development.test",
     "login": "clasp login",
-    "setup": "rimraf .clasp.json && mkdirp dist && clasp create --type sheets --title \"My React Project\" --rootDir ./dist && mv ./dist/.clasp.json ./.clasp.json && rimraf dist",
+    "setup": "rimraf .clasp.json && mkdirp dist && clasp create --type sheets --title \"react-google-apps-script\" --rootDir ./dist && mv ./dist/.clasp.json ./.clasp.json && rimraf dist",
     "open": "clasp open --addon",
     "setup:https": "mkdirp certs && mkcert -key-file ./certs/key.pem -cert-file ./certs/cert.pem localhost 127.0.0.1",
     "build:dev": "cross-env NODE_ENV=development webpack",
@@ -27,8 +27,7 @@
     "script",
     "sheets"
   ],
-  "author": "Elisha Nuchi",
-  "license": "MIT",
+  "author": "Tarek R.",
   "engines": {
     "node": ">=10.0.0",
     "npm": ">=6.0.0"
@@ -37,12 +36,12 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.11.11",
+    "@mui/x-data-grid": "^6.13.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.2.0",
-    "react-transition-group": "^4.4.2",
-    "tailwindcss": "^3.1.6"
+    "react-transition-group": "^4.4.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
