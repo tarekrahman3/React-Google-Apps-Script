@@ -64,28 +64,57 @@ import { DataGrid } from '@mui/x-data-grid';
 //         </div>
 //     );
 // }
-function App() {
+
+const columns = [
+  {
+      field: 'dealer',
+      headerName: 'Dealer',
+      width: 150,
+      editable: false,
+  },
+  {
+      field: 'entryTime',
+      headerName: 'Entry Time (UTC)',
+      width: 150,
+      editable: false,
+  },
+  {
+      field: 'exitTime',
+      headerName: 'Taken Out Time (UTC)',
+      width: 150,
+      editable: false,
+  },
+  {
+      field: 'brand',
+      headerName: 'Brand',
+      width: 150,
+      editable: false,
+  },
+  {
+      field: 'modelAndTitle',
+      headerName: 'Model and Title',
+      width: 150,
+      editable: false,
+  },
+  {
+      field: 'carUrl',
+      headerName: 'URL',
+      width: 150,
+      editable: false,
+  },
+];
+
+export default function App() {
     const [data, setData] = useState([]);
   
     useEffect(() => {
-      // Replace 'your-apps-script-web-app-url' with the actual URL of your deployed web app
-      fetch('https://script.google.com/macros/s/your-apps-script-web-app-url/exec')
-        .then((response) => response.json())
-        .then((data) => {
-          setData(data);
-        })
-        .catch((error) => {
-          console.error('Error fetching data from Google Apps Script:', error);
-        });
+      google.script.run.withSuccessHandler(data=>setData(data)).getAllTakenOutCars();
     }, []);
   
-    const columns = []; // Define your column configuration here
-  
     return (
-      <div style={{ height: 400, width: '100%' }}>
+      <div style={{ height: 700, width: '100%' }}>
         <DataGrid rows={data} columns={columns} />
       </div>
     );
   }
   
-  export default App;
